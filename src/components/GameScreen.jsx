@@ -166,7 +166,7 @@ const GameScreen = ({ quizOptions: { category, difficulty, type }, changeState }
       {questionList}
       <ThemeProvider theme={buttonTheme}>
         <Stack direction='row' display='flex' alignItems='center'>
-          {<StyledControllButton value='Settings' onClick={changeState}>
+          {!gameOver && <StyledControllButton value='Settings' onClick={changeState}>
             Back
           </StyledControllButton>}
           {gameOver && <StyledControllButton value='Home' onClick={changeState}>
