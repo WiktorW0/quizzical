@@ -24,11 +24,11 @@
 <p align="center">
 <img src="https://i.imgur.com/L4T2QXZ.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/ry2ReWh.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/RKYtfbh.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/obBuQFn.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/TIGYILQ.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/svu0Esv.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/wDWdfEI.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/06ZeX6k.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/jTvTGtF.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
