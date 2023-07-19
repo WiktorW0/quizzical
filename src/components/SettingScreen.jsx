@@ -2,13 +2,13 @@
 import React from 'react';
 import { Stack, Typography, Button, } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { categories } from '../utils/constants'
 import { difficulties } from '../utils/constants'
 import { types } from '../utils/constants'
 import '../fonts/fonts.css'
 
-const buttonTheme = createTheme({
+let buttonTheme = createTheme({
   palette: {
     primary: {
       main: '#cad5ed',
@@ -22,7 +22,9 @@ const buttonTheme = createTheme({
       dark: '#27695c'
     }
   },
-});
+})
+
+buttonTheme = responsiveFontSizes(buttonTheme)
 
 const StyledButton = styled(Button)(({ theme }) => ({
   '&.MuiButton-text': {
@@ -30,8 +32,9 @@ const StyledButton = styled(Button)(({ theme }) => ({
     padding: theme.spacing(1, 2, 1, 2),
     backgroundColor: theme.palette.secondary.main,
     margin: theme.spacing(0),
-    minWidth: 'auto',
-    justifyContent: 'flex-start',
+    textTransform: 'none',
+    width: 'auto',
+    justifyContent: 'center',
     borderRadius: 20,
     alignItems: 'center',
     outline: 'none',
@@ -46,9 +49,9 @@ const StyledControllButton = styled(Button)(({ theme }) => ({
   '&.MuiButton-text': {
     fontFamily: 'Dosis',
     color: theme.palette.primary.main,
-    padding: theme.spacing(2, 4, 2, 4),
+    padding: theme.spacing(2, 2, 2, 2),
     margin: theme.spacing(3, 1),
-    minWidth: 'auto',
+    width: 'auto',
     fontSize: 20,
     borderRadius: 15,
     justifyContent: 'center',
@@ -61,24 +64,24 @@ const StyledControllButton = styled(Button)(({ theme }) => ({
 const SettingScreen = ({ changeState, quizOptions, handleQuizOptions }) => {
 
   return (
-    <Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10, width: 'auto' }}>
+    <Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10, width: { xs: '310px', sm: '310px', md: '800px', lg: '1100px' }, }}>
       <Typography variant='h4' sx={{ color: 'white', fontFamily: 'Dosis' }}>
         Category:
       </Typography>
       <Stack
-        direction='row'
+        direction={{ xs: 'column', sm: 'column', md: 'row' }}
         display='flex'
         alignItems='center'
         flexWrap='wrap'
         justifyContent='center'
         gap={2}
-        sx={{ width: '1200px', height: '100%', mt: 2 }}
+        sx={{ width: { xs: '310px', sm: '310px', md: '800px', lg: '1100px' }, height: '100%', mt: 2, }}
       >
         {categories.map((category) => (
           <ThemeProvider theme={buttonTheme} key={category.name}>
             <StyledButton
               variant='text'
-              sx={{ boxShadow: 'rgba(108, 2, 2, 0.4) 0px 30px 60px -12px inset' }}
+              sx={{ boxShadow: 'rgba(108, 2, 2, 0.4) 0px 30px 60px -12px inset', }}
               name='category'
               value={category.id}
               style={{ background: category.id === quizOptions.category && buttonTheme.palette.secondary.light }}
@@ -96,7 +99,15 @@ const SettingScreen = ({ changeState, quizOptions, handleQuizOptions }) => {
       <Typography variant='h4' sx={{ color: 'white', mt: 5, fontFamily: 'Dosis' }}>
         Difficulty:
       </Typography>
-      <Stack direction='row' gap={2} sx={{ mt: 2 }}>
+      <Stack
+        display='flex'
+        alignItems='center'
+        flexWrap='wrap'
+        justifyContent='center'
+        direction={{ xs: 'column', sm: 'column', md: 'row' }}
+        gap={2}
+        sx={{ mt: 2 }}
+      >
         {difficulties.map((difficulty) => (
           <ThemeProvider theme={buttonTheme} key={difficulty.name}>
             <StyledButton
@@ -119,18 +130,26 @@ const SettingScreen = ({ changeState, quizOptions, handleQuizOptions }) => {
       <Typography variant='h4' sx={{ color: 'white', mt: 5, fontFamily: 'Dosis' }}>
         Type:
       </Typography>
-      <Stack direction='row' gap={2} sx={{ mt: 2 }}>
+      <Stack
+        display='flex'
+        alignItems='center'
+        flexWrap='wrap'
+        justifyContent='center'
+        direction={{ xs: 'column', sm: 'column', md: 'row' }}
+        gap={2}
+        sx={{ mt: 2 }}
+      >
         {types.map((type) => (
           <ThemeProvider theme={buttonTheme} key={type.name}>
             <StyledButton
               variant='text'
-              sx={{ boxShadow: 'rgba(108, 2, 2, 0.4) 0px 30px 60px -12px inset' }}
+              sx={{ boxShadow: 'rgba(108, 2, 2, 0.4) 0px 30px 60px -12px inset', }}
               name='type'
               value={type.id}
               style={{ background: type.id === quizOptions.type && buttonTheme.palette.secondary.light }}
               onClick={handleQuizOptions}
             >
-              <Typography variant='h5' display='flex' alignItems='center' justifyContent='center' sx={{ fontFamily: 'Dosis', fontWeight: 'bold' }}
+              <Typography variant='h5' display='flex' textAlign='center' justifyContent='center' sx={{ fontFamily: 'Dosis', fontWeight: 'bold' }}
                 style={{ color: type.id === quizOptions.type && buttonTheme.palette.primary.dark }}
               >
                 {type.name}

@@ -6,10 +6,10 @@ import { decode } from 'html-entities';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 
 
-const buttonTheme = createTheme({
+let buttonTheme = createTheme({
   palette: {
     primary: {
       main: '#cad5ed',
@@ -23,7 +23,9 @@ const buttonTheme = createTheme({
       dark: '#27695c'
     }
   },
-});
+})
+
+buttonTheme = responsiveFontSizes(buttonTheme)
 
 const StyledButton = styled(Button)(({ theme }) => ({
   '&.MuiButton-text': {
@@ -31,6 +33,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
     padding: theme.spacing(1, 2, 1, 2),
     backgroundColor: theme.palette.secondary.main,
     margin: theme.spacing(1),
+    textTransform: 'none',
     minWidth: 'auto',
     justifyContent: 'flex-start',
     borderRadius: 20,
@@ -93,12 +96,16 @@ const Question = ({ quizQuestions, url, handleSelectedAnswer, gameOver }) => {
 
   return (
     <Stack sx={{ mt: 2, pb: 2, borderBottom: 'solid 1px white' }}>
-      <Typography variant='h4' sx={{ fontFamily: 'Dosis', color: "white" }}>
-        {quizQuestionText}
-      </Typography>
-      <Stack direction='row' >
-        {answerButton}
-      </Stack>
+      <ThemeProvider theme={buttonTheme}>
+        <Typography variant='h4' sx={{ fontFamily: 'Dosis', color: "white", }}>
+          {quizQuestionText}
+        </Typography>
+        <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }}
+          alignItems='center'
+        >
+          {answerButton}
+        </Stack>
+      </ThemeProvider>
     </Stack>
   )
 }

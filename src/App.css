@@ -1,7 +1,5 @@
 body,
 html {
-  height: 100%;
-  width: 100%;
   background-color: rgb(97, 103, 149);
 }
 
@@ -17,4 +15,37 @@ html {
 
 .link {
   text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .bg--img {
+    width: 87%;
+    transform: translate(-20%, -50%);
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .bg--img {
+    width: 57%;
+    transform: translate(-20%, -50%);
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width:1200px) {
+  .bg--img {
+    width: 57%;
+    transform: translate(-20%, -50%);
+    overflow: hidden;
+  }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width:1500px) {
+  .bg--img {
+    width: 47%;
+    transform: translate(-20%, -50%);
+    overflow: hidden;
+  }
 }

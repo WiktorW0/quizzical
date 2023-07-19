@@ -7,10 +7,10 @@ import { useState } from 'react';
 import { Question } from './';
 import { nanoid } from 'nanoid';
 import { styled } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
-const buttonTheme = createTheme({
+let buttonTheme = createTheme({
   palette: {
     primary: {
       main: '#cad5ed',
@@ -24,7 +24,9 @@ const buttonTheme = createTheme({
       dark: '#27695c'
     }
   },
-});
+})
+
+buttonTheme = responsiveFontSizes(buttonTheme)
 
 const StyledControllButton = styled(Button)(({ theme }) => ({
   '&.MuiButton-text': {
@@ -32,14 +34,14 @@ const StyledControllButton = styled(Button)(({ theme }) => ({
     color: theme.palette.primary.main,
     padding: theme.spacing(2, 4, 2, 4),
     margin: theme.spacing(3, 1),
-    minWidth: 'auto',
+    width: 'auto',
     fontSize: 20,
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
     border: 'solid 1px',
   },
-}));
+}))
 
 const StyledTypo = styled(Typography)(({ theme }) => ({
   '&.MuiTypography-root': {
@@ -62,7 +64,7 @@ const StyledTypo = styled(Typography)(({ theme }) => ({
       width: '100%'
     }
   }
-}));
+}))
 
 const GameScreen = ({ quizOptions: { category, difficulty, type }, changeState }) => {
   const [quizQuestions, setQuizQuestions] = useState([])
@@ -162,7 +164,7 @@ const GameScreen = ({ quizOptions: { category, difficulty, type }, changeState }
   })
 
   return (
-    <Stack>
+    <Stack sx={{ width: { xs: '310px', sm: '510px', md: '800px', lg: '1100px' } }}>
       {questionList}
       <ThemeProvider theme={buttonTheme}>
         <Stack direction='row' display='flex' alignItems='center'>
@@ -177,21 +179,21 @@ const GameScreen = ({ quizOptions: { category, difficulty, type }, changeState }
           </StyledControllButton>}
           {gameOver && playerScore === 0 &&
             <a href="https://www.youtube.com/watch?v=wW_ikQbTD-4" className='link'>
-              <StyledTypo variant='h4' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
+              <StyledTypo variant='h5' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
                 {`You answered ${playerScore} out of 5 questions correctly`}
               </StyledTypo>
             </a>
           }
           {gameOver && playerScore >= 1 && playerScore <= 4 &&
             <a href="https://www.youtube.com/watch?v=fqT5_3jaVjE" className='link'>
-              <StyledTypo variant='h4' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
+              <StyledTypo variant='h5' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
                 {`You answered ${playerScore} out of 5 questions correctly`}
               </StyledTypo>
             </a>
           }
           {gameOver && playerScore === 5 &&
             <a href="https://www.youtube.com/watch?v=y7Ymw5aQkLs" className='link'>
-              <StyledTypo variant='h4' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
+              <StyledTypo variant='h5' sx={{ fontFamily: 'Dosis', color: 'white', ml: 2 }}>
                 {`You answered ${playerScore} out of 5 questions correctly`}
               </StyledTypo>
             </a>

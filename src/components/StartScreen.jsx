@@ -2,10 +2,10 @@
 import React from 'react';
 import { Stack, Typography, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import '../fonts/fonts.css'
 
-const buttonTheme = createTheme({
+let buttonTheme = createTheme({
   palette: {
     primary: {
       main: '#cad5ed',
@@ -16,7 +16,9 @@ const buttonTheme = createTheme({
       main: '#38ccae'
     }
   },
-});
+})
+
+buttonTheme = responsiveFontSizes(buttonTheme)
 
 const StyledControllButton = styled(Button)(({ theme }) => ({
   '&.MuiButton-text': {
@@ -31,7 +33,7 @@ const StyledControllButton = styled(Button)(({ theme }) => ({
     alignItems: 'center',
     border: 'solid 1px'
   },
-}));
+}))
 
 const StyledTypo = styled(Typography)(({ theme }) => ({
   '&.MuiTypography-root': {
@@ -54,28 +56,29 @@ const StyledTypo = styled(Typography)(({ theme }) => ({
       width: '100%'
     }
   }
-}));
+}))
 
 const StartScreen = ({ changeState }) => {
   return (
-    <Stack sx={{ alignItems: 'center', zIndex: 10 }}>
-      <Typography variant='h3' sx={{ color: '#cad5ed', fontFamily: 'Dosis' }}>
-        Quizzical
-      </Typography>
-      <Typography variant='h4' sx={{ mt: 2, color: '#cad5ed', fontFamily: 'Dosis' }}>
-        Answer the questions and test your knowledge!
-      </Typography>
-      <ThemeProvider theme={buttonTheme}>
+    <ThemeProvider theme={buttonTheme}>
+      <Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
+        <Typography variant='h3' sx={{ color: '#cad5ed', fontFamily: 'Dosis', textAlign: 'center' }}>
+          Quizzical
+        </Typography>
+        <Typography variant='h4' sx={{ mt: 2, color: '#cad5ed', fontFamily: 'Dosis', textAlign: 'center' }}>
+          Answer the questions and test your knowledge!
+        </Typography>
+
         <StyledControllButton variant='text' value='Settings' onClick={changeState}>
           New quiz
         </StyledControllButton>
         <a href="https://opentdb.com/" className='link'>
-          <StyledTypo variant='h5'>
+          <StyledTypo variant='h5' sx={{ textAlign: 'center' }}>
             If quizzes are quizzical then what are tests ?
           </StyledTypo>
         </a>
-      </ThemeProvider>
-    </Stack>
+      </Stack>
+    </ThemeProvider>
   )
 }
 
