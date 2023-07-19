@@ -22,7 +22,7 @@
 
 ## 📷 Screenshots:
 <p align="center">
-<img src="https://i.imgur.com/L4T2QXZ.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/tB8Yiyh.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
 <img src="https://i.imgur.com/RKYtfbh.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
