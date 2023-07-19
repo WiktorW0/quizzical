@@ -17,10 +17,18 @@ html {
   text-decoration: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 310px) and (max-width: 400px) {
   .bg--img {
-    width: 87%;
-    transform: translate(-20%, -50%);
+    width: 187%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+  .bg--img {
+    width: 107%;
+    transform: translate(-50%, -50%);
     overflow: hidden;
   }
 }
