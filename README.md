@@ -10,6 +10,10 @@
 ***The only thing thas was left from original project is the idea about building a quiz app. I changed the design and expanded the functionalities proposed in the original project. I used knowledge from Youtube app to add and implement MUI components and functionalities. Quick test of skills before starting to learn*** `Typescript` ***and*** `Tailwind CSS`.
 </br>
 
+***One of the problems I had while coding this project was to properly design and condition the algorithm to sort the array of answers. I managed to write and implement a card shuffling algorithm that is operating inside*** `useEffect` ***React hook.***
+</br>
+
+
 ## ⚒️ Built with:
 - React - JS library
 - MUI - React component library
@@ -22,9 +26,9 @@
 <br />
 <img src="https://i.imgur.com/ry2ReWh.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/ihtqrbl.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/obBuQFn.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/untNwtD.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/svu0Esv.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
-<img src="https://i.imgur.com/846e9Ld.png" height="100%" width="100%" alt="Quizzical"/>
+<img src="https://i.imgur.com/06ZeX6k.png" height="100%" width="100%" alt="Quizzical"/>
 <br />
